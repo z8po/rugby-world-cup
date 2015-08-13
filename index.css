@@ -1,0 +1,209 @@
+* {
+  font-size: 12px;
+}
+hr {
+  border-bottom: 2px solid #046380;
+}
+
+h1,
+thead {
+  font-family: 'Lato', sans-serif;
+  font-weight: 900;
+}
+
+h2 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 100;
+}
+/*
+pink : #EB3176;
+blue : #043968;
+deep : #032E54;
+*/
+
+header {
+  text-align: center;
+  background-color: #032E54;
+  padding: 20px 0px 20px 0px;
+}
+
+header p {
+  color: white;
+}
+
+header .year,
+header p #time {
+  color: #046380;
+}
+
+header .div {
+  color: white;
+}
+
+h1 {
+  color: #EB3176;
+  font-weight: bold;
+}
+
+h2 {
+  color: #043968;
+}
+
+h3 {
+  color: #032E54;
+}
+
+thead {
+  font-weight: bold;
+}
+/*
+tables
+*/
+
+.table thead>tr>th,
+.table tbody>tr>th,
+.table tfoot>tr>th,
+.table thead>tr>td,
+.table tbody>tr>td,
+.table tfoot>tr>td {
+  border-top: 1px solid #EB3176;
+}
+
+.table caption+thead tr:first-child th,
+.table colgroup+thead tr:first-child th,
+.table thead:first-child tr:first-child th,
+.table caption+thead tr:first-child td,
+.table colgroup+thead tr:first-child td,
+.table thead:first-child tr:first-child td {
+  border-bottom: 2px solid #043968;
+}
+
+th {
+  vertical-align: middle !important;
+  font-weight: bold;
+  text-align: center;
+}
+
+td:not(:first-child) {
+  text-align: center;
+}
+
+.poolTable {
+  color: #EB3176;
+}
+/*
+svg
+*/
+
+.node .bubble {
+  fill: #fff;
+  stroke: #046380;
+  stroke-width: 5px;
+}
+
+.node {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #EB3176;
+  stroke-width: 5px;
+}
+
+.tLogoSmall.angleterre {
+  background-position: 0px 0px;
+}
+
+.tLogoSmall.fiji {
+  background-position: 0px -35px;
+}
+
+.tLogoSmall.tonga {
+  background-position: 0px -665px;
+}
+
+.tLogoSmall.georgie {
+  background-position: 0px -70px;
+}
+
+.tLogoSmall.irlande {
+  background-position: 0px -105px;
+}
+
+.tLogoSmall.canada {
+  background-position: 0px -140px;
+}
+
+.tLogoSmall.afrique-du-sud {
+  background-position: 0px -175px;
+}
+
+.tLogoSmall.japon {
+  background-position: 0px -210px;
+}
+
+.tLogoSmall.australie {
+  background-position: 0px -245px;
+}
+
+.tLogoSmall.argentine {
+  background-position: 0px -280px;
+}
+
+.tLogoSmall.italie {
+  background-position: 0px -315px;
+}
+
+.tLogoSmall.usa {
+  background-position: 0px -350px;
+}
+
+.tLogoSmall.uruguay {
+  background-position: 0px -385px;
+}
+
+.tLogoSmall.nouvelle-zelande {
+  background-position: 0px -420px;
+}
+
+.tLogoSmall.france {
+  background-position: 0px -455px;
+}
+
+.tLogoSmall.pays-de-galles {
+  background-position: 0px -490px;
+}
+
+.tLogoSmall.ecosse {
+  background-position: 0px -525px;
+}
+
+.tLogoSmall.roumanie {
+  background-position: 0px -560px;
+}
+
+.tLogoSmall.namibie {
+  background-position: 0px -595px;
+}
+
+.tLogoSmall.samoa {
+  background-position: 0px -630px;
+}
+
+tr span {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+
+.tLogoSmall {
+  width: 31px;
+  height: 35px;
+  background-image: url("/rugby-team.png");
+}
+
+.stadium {
+  fill: #6B6B6B;
+  font-size: 9px;
+}
