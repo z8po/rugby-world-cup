@@ -200,7 +200,7 @@ tr span {
 .tLogoSmall {
   width: 31px;
   height: 35px;
-  background-image: url("/rugby-team.png");
+  background-image: url("rugby-team.png");
 }
 
 .stadium {

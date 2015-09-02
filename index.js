@@ -1,112 +1,157 @@
 window.onload = function() {
-  d3.json('/match.json',
+  d3.csv('match.csv',
     function(err, cup) {
-      cup.children.forEach(function(half) {
-        half.children.forEach(function(pool) {
-            console.log(pool);
-            if (pool.stats && pool.stats.length !== 0) {
-              //generating the table layout
-              var tablePool = document.createElement('table');
-              tablePool.setAttribute('class', 'table table-hover');
-              //set ID by table
-              var poolName = pool.name.replace(/ +/g, "");
-              tablePool.setAttribute('id', poolName);
-              //create thead & insert title
-              var tHead = tablePool.appendChild(document.createElement('thead'));
-              var tHeadRow = tHead.insertRow(0);
-              var tHeadCell = tHead.children[0].appendChild(document.createElement("th"));
-              tHeadCell.textContent = 'Poule ' + pool.pool;
-              tHeadCell.setAttribute('class', 'poolTable');
-              var Played = tHead.children[0].appendChild(document.createElement("th"));
-              Played.textContent = 'Played';
-              var Win = tHead.children[0].appendChild(document.createElement("th"));
-              Win.textContent = 'Win';
-              var Draw = tHead.children[0].appendChild(document.createElement("th"));
-              Draw.textContent = 'Draw';
-              var Lost = tHead.children[0].appendChild(document.createElement("th"));
-              Lost.textContent = 'Lost';
-              var PointsFor = tHead.children[0].appendChild(document.createElement("th"));
-              PointsFor.textContent = 'Points For';
-              var PointsAgainst = tHead.children[0].appendChild(document.createElement("th"));
-              PointsAgainst.textContent = 'Points Against';
-              var PointsDifference = tHead.children[0].appendChild(document.createElement("th"));
-              PointsDifference.textContent = 'Points Difference';
-              var TriesFor = tHead.children[0].appendChild(document.createElement("th"));
-              TriesFor.textContent = 'Tries For';
-              var TriesAgainst = tHead.children[0].appendChild(document.createElement("th"));
-              TriesAgainst.textContent = 'Tries Against';
-              var BonusPoints = tHead.children[0].appendChild(document.createElement("th"));
-              BonusPoints.textContent = 'Bonus Points';
-              var Points = tHead.children[0].appendChild(document.createElement("th"));
-              Points.textContent = 'Points';
-              //create tbody
-              var tBody = tablePool.appendChild(document.createElement('tbody'));
-              pool.stats.forEach(function(team) {
-                //insert row
-                var tBodyRow = tBody.insertRow(0);
-                //insert data
-                var country = tBodyRow.insertCell(0);
 
-                var countryLowerCase = team.country.toLowerCase().replace(/ /g, "-").replace(/é/g, "e");
-                var flagCountry = country.appendChild(document.createElement('span'));
-                flagCountry.setAttribute('class', 'tLogoSmall FJI ' + countryLowerCase);
-                var nameCountry = country.appendChild(document.createElement('span'));
-                nameCountry.textContent = team.country;
-                //flagCountry.textContent = team.country;
-                var P = tBodyRow.insertCell(1);
-                P.textContent = team.P;
-                var W = tBodyRow.insertCell(2);
-                W.textContent = team.W;
-                var D = tBodyRow.insertCell(3);
-                D.textContent = team.D;
-                var L = tBodyRow.insertCell(4);
-                L.textContent = team.L;
-                var PF = tBodyRow.insertCell(5);
-                PF.textContent = team.PF;
-                var PA = tBodyRow.insertCell(6);
-                PA.textContent = team.PA;
-                var PD = tBodyRow.insertCell(7);
-                PD.textContent = team.PD;
-                var TF = tBodyRow.insertCell(8);
-                TF.textContent = team.TF;
-                var TA = tBodyRow.insertCell(9);
-                TA.textContent = team.TA;
-                var BP = tBodyRow.insertCell(10);
-                BP.textContent = team.BP;
-                var PTS = tBodyRow.insertCell(11);
-                PTS.textContent = team.PTS;
-              });
-              //initiate
-              var qualif = document.getElementById('qualification');
-              qualif.appendChild(tablePool);
-            }
+      // pool table generator
+      d3.csv('pool.csv',function(err, pools){
+        function makeTable (idPool) {
+            var tablePool = document.createElement('table');
+            tablePool.setAttribute('class', 'table table-hover');
+            //set ID by table
+            tablePool.setAttribute('id', 'pool' + idPool);
+            //create thead & insert title
+            var tHead = tablePool.appendChild(document.createElement('thead'));
+            var tHeadRow = tHead.insertRow(0);
+            var tHeadCell = tHead.children[0].appendChild(document.createElement("th"));
+            tHeadCell.textContent = 'Poule ' + idPool;
+            tHeadCell.setAttribute('class', 'poolTable');
+
+            var Played = tHead.children[0].appendChild(document.createElement("th"));
+            Played.textContent = 'Played';
+
+            var Win = tHead.children[0].appendChild(document.createElement("th"));
+            Win.textContent = 'Win';
+
+            var Draw = tHead.children[0].appendChild(document.createElement("th"));
+            Draw.textContent = 'Draw';
+
+            var Lost = tHead.children[0].appendChild(document.createElement("th"));
+            Lost.textContent = 'Lost';
+
+            var PointsFor = tHead.children[0].appendChild(document.createElement("th"));
+            PointsFor.textContent = 'Points For';
+
+            var PointsAgainst = tHead.children[0].appendChild(document.createElement("th"));
+            PointsAgainst.textContent = 'Points Against';
+
+            var PointsDifference = tHead.children[0].appendChild(document.createElement("th"));
+            PointsDifference.textContent = 'Points Difference';
+
+            var TriesFor = tHead.children[0].appendChild(document.createElement("th"));
+            TriesFor.textContent = 'Tries For';
+
+            var TriesAgainst = tHead.children[0].appendChild(document.createElement("th"));
+            TriesAgainst.textContent = 'Tries Against';
+
+            var BonusPoints = tHead.children[0].appendChild(document.createElement("th"));
+            BonusPoints.textContent = 'Bonus Points';
+
+            var Points = tHead.children[0].appendChild(document.createElement("th"));
+            Points.textContent = 'Points';
+            //create tbody
+            var tBody = tablePool.appendChild(document.createElement('tbody'));
+            return tablePool;
+        }
+        var qualif = document.getElementById('qualification');
+        qualif.appendChild(makeTable('A'));
+        qualif.appendChild(makeTable('B'));
+        qualif.appendChild(makeTable('C'));
+        qualif.appendChild(makeTable('D'));
+
+        pools.forEach(function(team){
+          var tableTarget = document.getElementById('pool' + team.pool);
+
+          var tBody = tableTarget.getElementsByTagName('tbody');
+          //insert row
+          var tBodyRow = tBody[0].insertRow(0);
+          //insert data
+          var country = tBodyRow.insertCell(0);
+
+          var countryLowerCase = team.country.toLowerCase().replace(/ /g, "-").replace(/é/g, "e");
+
+          var flagCountry = country.appendChild(document.createElement('span'));
+          flagCountry.setAttribute('class', 'tLogoSmall FJI ' + countryLowerCase);
+
+          var nameCountry = country.appendChild(document.createElement('span'));
+          nameCountry.textContent = team.country;
+          //flagCountry.textContent = team.country;
+          function cleanEmpty (value) {
+            value = value === '' ? 0 : value;
+            return value;
+          }
+          var P = tBodyRow.insertCell(1);
+          P.textContent = cleanEmpty(team.P);
+          var W = tBodyRow.insertCell(2);
+          W.textContent = cleanEmpty(team.W);
+          var D = tBodyRow.insertCell(3);
+          D.textContent = cleanEmpty(team.D);
+          var L = tBodyRow.insertCell(4);
+          L.textContent = cleanEmpty(team.L);
+          var PF = tBodyRow.insertCell(5);
+          PF.textContent = cleanEmpty(team.PF);
+          var PA = tBodyRow.insertCell(6);
+          PA.textContent = cleanEmpty(team.PA);
+          var PD = tBodyRow.insertCell(7);
+          PD.textContent = cleanEmpty(team.PD);
+          var TF = tBodyRow.insertCell(8);
+          TF.textContent = cleanEmpty(team.TF);
+          var TA = tBodyRow.insertCell(9);
+          TA.textContent = cleanEmpty(team.TA);
+          var BP = tBodyRow.insertCell(10);
+          BP.textContent = cleanEmpty(team.BP);
+          var PTS = tBodyRow.insertCell(11);
+          PTS.textContent = cleanEmpty(team.PTS);
         });
       });
 
-      function startTimer(duration, display) {
-        var timer = duration,
-          minutes, seconds;
-        setInterval(function() {
-          minutes = parseInt(timer / 60, 10);
-          seconds = parseInt(timer % 60, 10);
 
-          minutes = minutes < 10 ? "0" + minutes : minutes;
-          seconds = seconds < 10 ? "0" + seconds : seconds;
+      // csv to tree
+      var nodesByName= {};
+      function nodeByName(obj, type) {
+        return  nodesByName[obj[type]] || (nodesByName[obj[type]] = {
+          name: obj.name,
+          target: obj.target,
+          source: obj.source,
+          date: obj.date,
+          hour: obj.hour,
+          stadium: obj.stadium,
+          countryFirst: obj.countryFirst,
+          countrySecond: obj.countrySecond,
+          score: obj.score
 
-          display.textContent = minutes + ":" + seconds;
-
-          if (--timer < 0) {
-            timer = duration;
-          }
-        }, 1000);
+        });
       }
 
-      var init = function (cup) {
+      cup.forEach(function(link, index) {
+          var parent = link.source = nodeByName(link, 'source'),
+              child = link.target = nodeByName(link, 'target');
+          if (parent.children) {
+            parent.children.push(child);
+          } else {
+            parent.children = [child];
+          }
+      });
+      console.log('altered cup ', cup);
+      console.log('nodesByName ', nodesByName);
+      cup = nodesByName;
 
+      // init
+      var init = function (cup) {
+        var insertLinebreaks = function (d) {
+            var el = d3.select(this);
+            var words = d.split(' ');
+            el.text('');
+
+            for (var i = 0; i < words.length; i++) {
+                var tspan = el.append('tspan').text(words[i]);
+                if (i > 0)
+                    tspan.attr('x', 0).attr('dy', '15');
+            }
+        };
         var margin = {
             top: 100,
-            right: 25,
-            bottom: 20,
+            right: 100,
+            bottom: 100,
             left: 25
           },
           width = document.getElementById('tournament').clientWidth - margin.right - margin.left,
@@ -164,7 +209,7 @@ window.onload = function() {
           }
         };
 
-        var cluster = d3.layout.cluster()
+        var tree = d3.layout.tree()
           // here are invert width and height
           .size(orientations.bottomToTop.size);
 
@@ -183,14 +228,17 @@ window.onload = function() {
           .attr("transform", "translate( " + margin.left + ", " + margin.top + ")");
 
         /* nodes & links */
-        var nodes = cluster.nodes(cup),
-          links = cluster.links(nodes);
+        console.log(cup);
+        var nodes = tree.nodes(cup.finale),
+          links = tree.links(nodes);
 
         /* link factory */
         var link = svg.selectAll(".link")
           .data(links)
           .enter().append("path")
-          .attr("class", "link")
+          .attr("class", function(d){
+            return 'link';
+          })
           .attr("d", diagonal);
 
         /* node factory */
@@ -253,12 +301,13 @@ window.onload = function() {
             return avatar;
           });
 
+
+
         node.append("text")
           .attr("dx", function(d) {
-            return 48;
+            return 5;
           })
-          .attr("dy", 0)
-          // .style("text-anchor", function(d) { return d.children ? "start" : "start"; })
+          .attr("dy", 60)
           .text(function(d) {
             if (d.countryFirst && d.countrySecond) {
               return d.countryFirst + " Vs " + d.countrySecond;
@@ -267,21 +316,19 @@ window.onload = function() {
 
         node.append("text")
           .attr("dx", function(d) {
-            return 48;
+            return 5;
           })
-          .attr("dy", 0)
-          // .style("text-anchor", function(d) { return d.children ? "start" : "start"; })
+          .attr("dy", 60)
           .text(function(d) {
             return d.name;
           });
 
         node.append("text")
           .attr("dx", function(d) {
-            return 48;
+            return 5;
           })
           .attr('class', 'stadium')
-          .attr("dy", 15)
-          // .style("text-anchor", function(d) { return d.children ? "start" : "start"; })
+          .attr("dy", 75)
           .text(function(d) {
             if (d.date && d.hour) {
               return d.date + ' ' + d.hour;
@@ -290,13 +337,12 @@ window.onload = function() {
 
         node.append("text")
           .attr("dx", function(d) {
-            return 48;
+            return 5;
           })
           .attr('class', 'stadium')
-          .attr("dy", 30)
-          // .style("text-anchor", function(d) { return d.children ? "start" : "start"; })
+          .attr("dy", 90)
           .text(function(d) {
-            return d.stadium;
+            return d.stadium.split(',').join(',');
           });
 
       };
