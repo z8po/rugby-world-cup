@@ -110,6 +110,16 @@ svg
   stroke: #EB3176;
   stroke-width: 5px;
 }
+.table > tbody > tr > td.tLogoSmall-left{
+  background-repeat: no-repeat;
+  padding-right: 30px;
+   background-position: right center;
+}
+.table > tbody > tr > td.tLogoSmall-right{
+  padding-left: 30px;
+  background-repeat: no-repeat;
+   background-position: left center;
+}
 
 .tLogoSmall.angleterre {
   background-image:url(angleterre.png);

@@ -1,56 +1,58 @@
 window.onload = function() {
   d3.csv('match.csv',
     function(err, cup) {
+      console.log(cup);
+      var isFailing = /iPad|iPhone|iPod/.test(navigator.platform);
 
       // pool table generator
-      d3.csv('pool.csv',function(err, pools){
-        function makeTable (idPool) {
-            var tablePool = document.createElement('table');
-            tablePool.setAttribute('class', 'table table-hover');
-            //set ID by table
-            tablePool.setAttribute('id', 'pool' + idPool);
-            //create thead & insert title
-            var tHead = tablePool.appendChild(document.createElement('thead'));
-            var tHeadRow = tHead.insertRow(0);
-            var tHeadCell = tHead.children[0].appendChild(document.createElement("th"));
-            tHeadCell.textContent = 'Poule ' + idPool;
-            tHeadCell.setAttribute('class', 'poolTable');
+      d3.csv('pool.csv', function(err, pools) {
+        function makeTable(idPool) {
+          var tablePool = document.createElement('table');
+          tablePool.setAttribute('class', 'table table-hover');
+          //set ID by table
+          tablePool.setAttribute('id', 'pool' + idPool);
+          //create thead & insert title
+          var tHead = tablePool.appendChild(document.createElement('thead'));
+          var tHeadRow = tHead.insertRow(0);
+          var tHeadCell = tHead.children[0].appendChild(document.createElement("th"));
+          tHeadCell.textContent = 'Poule ' + idPool;
+          tHeadCell.setAttribute('class', 'poolTable');
 
-            var Played = tHead.children[0].appendChild(document.createElement("th"));
-            Played.textContent = 'Played';
+          var Played = tHead.children[0].appendChild(document.createElement("th"));
+          Played.textContent = 'Played';
 
-            var Win = tHead.children[0].appendChild(document.createElement("th"));
-            Win.textContent = 'Win';
+          var Win = tHead.children[0].appendChild(document.createElement("th"));
+          Win.textContent = 'Win';
 
-            var Draw = tHead.children[0].appendChild(document.createElement("th"));
-            Draw.textContent = 'Draw';
+          var Draw = tHead.children[0].appendChild(document.createElement("th"));
+          Draw.textContent = 'Draw';
 
-            var Lost = tHead.children[0].appendChild(document.createElement("th"));
-            Lost.textContent = 'Lost';
+          var Lost = tHead.children[0].appendChild(document.createElement("th"));
+          Lost.textContent = 'Lost';
 
-            var PointsFor = tHead.children[0].appendChild(document.createElement("th"));
-            PointsFor.textContent = 'Points For';
+          var PointsFor = tHead.children[0].appendChild(document.createElement("th"));
+          PointsFor.textContent = 'Points For';
 
-            var PointsAgainst = tHead.children[0].appendChild(document.createElement("th"));
-            PointsAgainst.textContent = 'Points Against';
+          var PointsAgainst = tHead.children[0].appendChild(document.createElement("th"));
+          PointsAgainst.textContent = 'Points Against';
 
-            var PointsDifference = tHead.children[0].appendChild(document.createElement("th"));
-            PointsDifference.textContent = 'Points Difference';
+          var PointsDifference = tHead.children[0].appendChild(document.createElement("th"));
+          PointsDifference.textContent = 'Points Difference';
 
-            var TriesFor = tHead.children[0].appendChild(document.createElement("th"));
-            TriesFor.textContent = 'Tries For';
+          var TriesFor = tHead.children[0].appendChild(document.createElement("th"));
+          TriesFor.textContent = 'Tries For';
 
-            var TriesAgainst = tHead.children[0].appendChild(document.createElement("th"));
-            TriesAgainst.textContent = 'Tries Against';
+          var TriesAgainst = tHead.children[0].appendChild(document.createElement("th"));
+          TriesAgainst.textContent = 'Tries Against';
 
-            var BonusPoints = tHead.children[0].appendChild(document.createElement("th"));
-            BonusPoints.textContent = 'Bonus Points';
+          var BonusPoints = tHead.children[0].appendChild(document.createElement("th"));
+          BonusPoints.textContent = 'Bonus Points';
 
-            var Points = tHead.children[0].appendChild(document.createElement("th"));
-            Points.textContent = 'Points';
-            //create tbody
-            var tBody = tablePool.appendChild(document.createElement('tbody'));
-            return tablePool;
+          var Points = tHead.children[0].appendChild(document.createElement("th"));
+          Points.textContent = 'Points';
+          //create tbody
+          var tBody = tablePool.appendChild(document.createElement('tbody'));
+          return tablePool;
         }
         var qualif = document.getElementById('qualification');
         qualif.appendChild(makeTable('A'));
@@ -58,7 +60,7 @@ window.onload = function() {
         qualif.appendChild(makeTable('C'));
         qualif.appendChild(makeTable('D'));
 
-        pools.forEach(function(team){
+        pools.forEach(function(team) {
           var tableTarget = document.getElementById('pool' + team.pool);
 
           var tBody = tableTarget.getElementsByTagName('tbody');
@@ -75,7 +77,7 @@ window.onload = function() {
           var nameCountry = country.appendChild(document.createElement('span'));
           nameCountry.textContent = team.country;
           //flagCountry.textContent = team.country;
-          function cleanEmpty (value) {
+          function cleanEmpty(value) {
             value = value === '' ? 0 : value;
             return value;
           }
@@ -106,9 +108,10 @@ window.onload = function() {
 
 
       // csv to tree
-      var nodesByName= {};
+      var nodesByName = {};
+
       function nodeByName(obj, type) {
-        return  nodesByName[obj[type]] || (nodesByName[obj[type]] = {
+        return nodesByName[obj[type]] || (nodesByName[obj[type]] = {
           name: obj.name,
           target: obj.target,
           source: obj.source,
@@ -121,30 +124,70 @@ window.onload = function() {
 
         });
       }
+      var memoCup = cup;
+      var memoTitle = ['name', 'countryFirst', 'countrySecond', 'date', 'hour', 'score', 'stadium'];
 
-      cup.forEach(function(link, index) {
-          var parent = link.source = nodeByName(link, 'source'),
-              child = link.target = nodeByName(link, 'target');
-          if (parent.children) {
-            parent.children.push(child);
-          } else {
-            parent.children = [child];
-          }
-      });
-      cup = nodesByName;
+      var fallBackPrintArray = function(data, columns) {
+        console.log(cup);
+        var table = d3.select('.container').append('table');
+        table.attr('class', 'table table-hover');
+        var thead = table.append('thead');
+        thead.append('tr')
+          .append('th')
+          .text("Tout les matches").attr('colspan', 7);
 
-      // init
-      var init = function (cup) {
-        var insertLinebreaks = function (d) {
-            var el = d3.select(this);
-            var words = d.split(' ');
-            el.text('');
-
-            for (var i = 0; i < words.length; i++) {
-                var tspan = el.append('tspan').text(words[i]);
-                if (i > 0)
-                    tspan.attr('x', 0).attr('dy', '15');
+        var tbody = table.append('tbody');
+        var rows = tbody.selectAll('tr')
+          .data(cup)
+          .enter()
+          .append('tr');
+        var cells = rows.selectAll('td')
+          .data(function(row) {
+            return columns.map(function(column) {
+              return {
+                column: column,
+                value: row[column]
+              };
+            });
+          })
+          .enter()
+          .append('td')
+          .attr('class', function(d) {
+            if (d.column === 'countryFirst'  ) {
+              return 'tLogoSmall tLogoSmall-left ' + d.value.toLowerCase().replace(/ /g, '-')
+              .replace(/é/g, 'e');
+            } else if (d.column === 'countrySecond') {
+              return 'tLogoSmall tLogoSmall-right '  + d.value.toLowerCase().replace(/ /g, '-')
+              .replace(/é/g, 'e');
             }
+          })
+          .text(function(d, i) {
+            console.log(d);
+              return d.value;
+          });
+      };
+
+      memoCup.forEach(function(link, index) {
+        var parent = link.source = nodeByName(link, 'source'),
+          child = link.target = nodeByName(link, 'target');
+        if (parent.children) {
+          parent.children.push(child);
+        } else {
+          parent.children = [child];
+        }
+      });
+      memoCup = nodesByName;
+      var init = function(cup) {
+        var insertLinebreaks = function(d) {
+          var el = d3.select(this);
+          var words = d.split(' ');
+          el.text('');
+
+          for (var i = 0; i < words.length; i++) {
+            var tspan = el.append('tspan').text(words[i]);
+            if (i > 0)
+              tspan.attr('x', 0).attr('dy', '15');
+          }
         };
         var margin = {
             top: 100,
@@ -233,7 +276,7 @@ window.onload = function() {
         var link = svg.selectAll(".link")
           .data(links)
           .enter().append("path")
-          .attr("class", function(d){
+          .attr("class", function(d) {
             return 'link';
           })
           .attr("d", diagonal);
@@ -267,9 +310,9 @@ window.onload = function() {
             var avatar = "";
             if (d.countryFirst) {
               avatar = d.countryFirst
-                        .toLowerCase()
-                        .replace(/ /g, '-')
-                        .replace(/é/g, 'e');
+                .toLowerCase()
+                .replace(/ /g, '-')
+                .replace(/é/g, 'e');
               avatar = "url(#" + avatar + ")";
             } else {
               avatar = "url(#image)";
@@ -288,9 +331,9 @@ window.onload = function() {
             var avatar = "";
             if (d.countrySecond) {
               avatar = d.countrySecond
-                        .toLowerCase()
-                        .replace(/ /g, '-')
-                        .replace(/é/g, 'e');
+                .toLowerCase()
+                .replace(/ /g, '-')
+                .replace(/é/g, 'e');
               avatar = "url(#" + avatar + ")";
             } else {
               avatar = "url(#image)";
@@ -307,7 +350,7 @@ window.onload = function() {
           .attr("dy", 60)
           .text(function(d) {
             if (d.countryFirst && d.countrySecond) {
-              return d.countryFirst + " Vs " + d.countrySecond;
+              return d.countryFirst + " - " + d.countrySecond;
             }
           });
 
@@ -343,11 +386,19 @@ window.onload = function() {
           });
 
       };
+      if (isFailing) {
+        // memoCup
+        fallBackPrintArray(cup, memoTitle);
+      } else {
+        init(memoCup);
+        fallBackPrintArray(cup, memoTitle);
+      }
 
-    init(cup);
-    window.onresize = function() {
-      document.getElementById("centralsvg").remove(0);
-      init(cup);
-    };
+      window.onresize = function() {
+        if (!isFailing) {
+          document.getElementById("centralsvg").remove(0);
+          init(memoCup);
+        }
+      };
     });
 };
