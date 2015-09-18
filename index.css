@@ -112,83 +112,83 @@ svg
 }
 
 .tLogoSmall.angleterre {
-  background-position: 0px 0px;
+  background-image:url(angleterre.png);
 }
 
 .tLogoSmall.fiji {
-  background-position: 0px -35px;
+  background-image:url(fiji.png);
 }
 
 .tLogoSmall.tonga {
-  background-position: 0px -665px;
+  background-image:url(tonga.png);
 }
 
 .tLogoSmall.georgie {
-  background-position: 0px -70px;
+  background-image:url(georgie.png);
 }
 
 .tLogoSmall.irlande {
-  background-position: 0px -105px;
+  background-image:url(irlande.png);
 }
 
 .tLogoSmall.canada {
-  background-position: 0px -140px;
+  background-image:url(canada.png);
 }
 
 .tLogoSmall.afrique-du-sud {
-  background-position: 0px -175px;
+  background-image:url(afrique-du-sud.png);
 }
 
 .tLogoSmall.japon {
-  background-position: 0px -210px;
+  background-image:url(japon.png);
 }
 
 .tLogoSmall.australie {
-  background-position: 0px -245px;
+  background-image:url(australie.png);
 }
 
 .tLogoSmall.argentine {
-  background-position: 0px -280px;
+  background-image:url(argentine.png);
 }
 
 .tLogoSmall.italie {
-  background-position: 0px -315px;
+  background-image:url(italie.png);
 }
 
 .tLogoSmall.usa {
-  background-position: 0px -350px;
+  background-image:url(usa.png);
 }
 
 .tLogoSmall.uruguay {
-  background-position: 0px -385px;
+  background-image:url(uruguay.png);
 }
 
 .tLogoSmall.nouvelle-zelande {
-  background-position: 0px -420px;
+  background-image:url(nouvelle-zelande.png);
 }
 
 .tLogoSmall.france {
-  background-position: 0px -455px;
+  background-image:url(france.png);
 }
 
 .tLogoSmall.pays-de-galles {
-  background-position: 0px -490px;
+  background-image:url(pays-de-galles.png);
 }
 
 .tLogoSmall.ecosse {
-  background-position: 0px -525px;
+  background-image:url(ecosse.png);
 }
 
 .tLogoSmall.roumanie {
-  background-position: 0px -560px;
+  background-image:url(roumanie.png);
 }
 
 .tLogoSmall.namibie {
-  background-position: 0px -595px;
+  background-image:url(namibie.png);
 }
 
 .tLogoSmall.samoa {
-  background-position: 0px -630px;
+  background-image:url(samoa.png);
 }
 
 tr span {
@@ -200,7 +200,6 @@ tr span {
 .tLogoSmall {
   width: 31px;
   height: 35px;
-  background-image: url("rugby-team.png");
 }
 
 .stadium {
