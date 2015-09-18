@@ -131,8 +131,6 @@ window.onload = function() {
             parent.children = [child];
           }
       });
-      console.log('altered cup ', cup);
-      console.log('nodesByName ', nodesByName);
       cup = nodesByName;
 
       // init
@@ -228,7 +226,6 @@ window.onload = function() {
           .attr("transform", "translate( " + margin.left + ", " + margin.top + ")");
 
         /* nodes & links */
-        console.log(cup);
         var nodes = tree.nodes(cup.finale),
           links = tree.links(nodes);
 
