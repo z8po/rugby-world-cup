@@ -12,20 +12,20 @@ match 1,poolA1,quartfinale1,Sam 10 oct ,21h,"City Stadium, Manchester",Angleterr
 ,poolD1,quartfinale4,Dim 11 oct ,17h45,"Millennium Stadium, Cardiff",France,Irlande,,D
 match2,poolA2,poolA1,Sam 10 oct ,17h45,"Twickenham, Londres",Australie,Pays de Galles,,A
 ,poolB2,poolB1,Sam 10 oct ,15h30,"St James Park, Newcastle upon Tyne",Samoa,Écosse,,B
-,poolC2,poolC1,Ven 9 oct ,21h,"St James Park, Newcastle upon Tyne",Nouvelle-Zélande,Tonga,,
-,poolD2,poolD1,Dim 11 oct ,15h30,"Sandy Park, Exeter",Italie,Roumanie,,
-match3,poolA3,poolA2,Mar 6 oct ,21h,"Stadiummk, Milton Keynes",Fiji,Uruguay,,
-,poolB3,poolB2,Mer 7 oct ,17h45,"The Stadium, Londres",Afrique du Sud,USA,,
-,poolC3,poolC2,Mer 7 oct ,21h,"Sandy Park, Exeter",Namibie,Géorgie,,
-,poolD3,poolD2,Mar 6 oct ,17h45,"City Stadium, Leicester",Canada,Roumanie,,
-,poolA4,poolA3,Sam 3 oct ,21h,Twickenham Londres,Angleterre,Australie,,
-,poolB4,poolB3,Sam 3 oct ,17h45,"St James Park, Newcastle upon Tyne",Afrique du Sud,Écosse,,
-,poolC4,poolC3,Dim 4 oct ,15h30,"Sandy Park, Exeter",Argentine,Tonga,,
-,poolD4,poolD3,Dim 4 oct ,17h45,"The Stadium, Londres",Irlande,Italie,,
-,poolA5,poolA4,Jeu 1 oct ,17h45,"Millennium Stadium, Cardiff",Pays de Galles,Fiji,,
-,poolB5,poolB4,Sam 3 oct ,15h30,"Stadiummk, Milton Keynes",Samoa,Japon,,
-,poolC5,poolC4,Sam 2 oct ,21h,"Millennium Stadium, Cardiff",Nouvelle-Zélande,Géorgie,,
-,poolD5,poolD4,Jeu 1 oct ,21h,"Stadiummk, Milton Keynes",France,Canada,,
+,poolC2,poolC1,Ven 9 oct ,21h,"St James Park, Newcastle upon Tyne",Nouvelle-Zélande,Tonga,,C
+,poolD2,poolD1,Dim 11 oct ,15h30,"Sandy Park, Exeter",Italie,Roumanie,,D
+match3,poolA3,poolA2,Mar 6 oct ,21h,"Stadiummk, Milton Keynes",Fiji,Uruguay,,A
+,poolB3,poolB2,Mer 7 oct ,17h45,"The Stadium, Londres",Afrique du Sud,USA,,B
+,poolC3,poolC2,Mer 7 oct ,21h,"Sandy Park, Exeter",Namibie,Géorgie,,C
+,poolD3,poolD2,Mar 6 oct ,17h45,"City Stadium, Leicester",Canada,Roumanie,,D
+,poolA4,poolA3,Sam 3 oct ,21h,Twickenham Londres,Angleterre,Australie,,A
+,poolB4,poolB3,Sam 3 oct ,17h45,"St James Park, Newcastle upon Tyne",Afrique du Sud,Écosse,,B
+,poolC4,poolC3,Dim 4 oct ,15h30,"Sandy Park, Exeter",Argentine,Tonga,,C
+,poolD4,poolD3,Dim 4 oct ,17h45,"The Stadium, Londres",Irlande,Italie,,D
+,poolA5,poolA4,Jeu 1 oct ,17h45,"Millennium Stadium, Cardiff",Pays de Galles,Fiji,,A
+,poolB5,poolB4,Sam 3 oct ,15h30,"Stadiummk, Milton Keynes",Samoa,Japon,,B
+,poolC5,poolC4,Sam 2 oct ,21h,"Millennium Stadium, Cardiff",Nouvelle-Zélande,Géorgie,,C
+,poolD5,poolD4,Jeu 1 oct ,21h,"Stadiummk, Milton Keynes",France,Canada,,D
 ,poolA6,poolA5,Dim 27 sept ,13h,"Villa Park, Birmingham",Australie,Uruguay,,
 ,poolB6,poolB5,Dim 27 sept ,15h30,"Elland Road, Leeds",Écosse,USA,,
 ,poolC6,poolC5,Mar 29 sept ,17h45,"Sandy Park, Exeter",Tonga,Namibie,,
