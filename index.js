@@ -387,7 +387,6 @@ window.onload = function() {
 
       };
       if (isFailing) {
-        // memoCup
         fallBackPrintArray(cup, memoTitle);
       } else {
         init(memoCup);

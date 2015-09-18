@@ -113,14 +113,16 @@ svg
 .table > tbody > tr > td.tLogoSmall-left{
   background-repeat: no-repeat;
   padding-right: 30px;
-   background-position: right center;
+  background-position: right center;
 }
 .table > tbody > tr > td.tLogoSmall-right{
   padding-left: 30px;
   background-repeat: no-repeat;
-   background-position: left center;
+  background-position: left center;
 }
-
+.table > tbody > tr {
+  height: 50px;
+}
 .tLogoSmall.angleterre {
   background-image:url(angleterre.png);
 }
