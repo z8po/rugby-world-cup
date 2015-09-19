@@ -1,7 +1,7 @@
 window.onload = function() {
   d3.csv('match.csv',
     function(err, cup) {
-      console.log(cup);
+
       var isFailing = /iPad|iPhone|iPod/.test(navigator.platform);
 
       // pool table generator
@@ -128,7 +128,6 @@ window.onload = function() {
       var memoTitle = ['name', 'countryFirst', 'countrySecond', 'date', 'hour', 'score', 'stadium'];
 
       var fallBackPrintArray = function(data, columns) {
-        console.log(cup);
         var table = d3.select('.container').append('table');
         table.attr('class', 'table table-hover');
         var thead = table.append('thead');
@@ -162,7 +161,6 @@ window.onload = function() {
             }
           })
           .text(function(d, i) {
-            console.log(d);
               return d.value;
           });
       };
