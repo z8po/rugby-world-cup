@@ -6,7 +6,7 @@ Quart de finale,quartfinale1,demifinale1,Sam 17 oct ,17h,"Twickenham, Londres",?
 Quart de finale,quartfinale2,demifinale1,Sam 17 oct ,21h,"Twickenham, Londres",?,?,,
 Quart de finale,quartfinale3,demifinale2,Dimanche 18 oct ,14h,"Twickenham, Londres",?,?,,
 Quart de finale,quartfinale4,demifinale2,Dimanche 18 oct ,17h,"Twickenham, Londres",?,?,,
-match 1,poolA1,quartfinale1,Sam 10 oct ,21h,"City Stadium, Manchester",Angleterre,Uruguay,0-2,A
+match 1,poolA1,quartfinale1,Sam 10 oct ,21h,"City Stadium, Manchester",Angleterre,Uruguay,,A
 ,poolB1,quartfinale2,Dim 11 oct ,21h,"Kingsholm, Gloucester",USA,Japon,,B
 ,poolC1,quartfinale3,Dim 11 oct ,13h,"City Stadium, Leicester",Argentine,Namibie,,C
 ,poolD1,quartfinale4,Dim 11 oct ,17h45,"Millennium Stadium, Cardiff",France,Irlande,,D
@@ -42,7 +42,7 @@ match3,poolA3,poolA2,Mar 6 oct ,21h,"Stadiummk, Milton Keynes",Fiji,Uruguay,,A
 ,poolB9,poolB8,Dim 20 sept ,13h,"Community Stadium, Brighton",Samoa,USA,,
 ,poolC9,poolC8,Dim 20 sept ,17h45,"Wembley Stadium, Londres",Nouvelle-Zélande,Argentine,,
 ,poolD9,poolD8,Mer 23 sept ,21h,"The Stadium, Londres",France,Roumanie,,
-,poolA10,poolA9,Ven 18 sept ,21h,"Twickenham, Londres",Angleterre,Fiji,,
+,poolA10,poolA9,Ven 18 sept ,21h,"Twickenham, Londres",Angleterre,Fiji,35-11,
 ,poolB10,poolB9,Sam 19 sept ,17h45,"Community Stadium, Brighton",Afrique du Sud,Japon,,
 ,poolC10,poolC9,Sam 19 sept ,13h,"Kingsholm, Gloucester",Tonga,Géorgie,,
 ,poolD10,poolD9,Sam 19 sept ,21h,"Twickenham, Londres",France,Italie,,
