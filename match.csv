@@ -1,20 +1,20 @@
 name,target,source,date,hour,stadium,countryFirst,countrySecond,score,pool
-Finale,finale,,Samedi 31 oct ,17h,"Twickenham, Londres",?,?,,
-Demi finale,demifinale1,finale,Samedi 24 oct ,17h,"Twickenham, Londres",?,?,,
-Demi finale,demifinale2,finale,Dimanche 25 oct ,17h,"Twickenham, Londres",?,?,,
-Quart de finale,quartfinale1,demifinale1,Sam 17 oct ,17h,"Twickenham, Londres",?,?,,
-Quart de finale,quartfinale2,demifinale1,Sam 17 oct ,21h,"Twickenham, Londres",?,?,,
-Quart de finale,quartfinale3,demifinale2,Dimanche 18 oct ,14h,"Twickenham, Londres",?,?,,
-Quart de finale,quartfinale4,demifinale2,Dimanche 18 oct ,17h,"Twickenham, Londres",?,?,,
-match 1,poolA1,quartfinale1,Sam 10 oct ,21h,"City Stadium, Manchester",Angleterre,Uruguay,,A
+Finale,finale,,Samedi 31 oct ,17h,"Twickenham, Londres",,,,
+Demi finale,demifinale1,finale,Samedi 24 oct ,17h,"Twickenham, Londres",,,,
+Demi finale,demifinale2,finale,Dimanche 25 oct ,17h,"Twickenham, Londres",,,,
+Quart de finale,quartfinale1,demifinale1,Sam 17 oct ,17h,"Twickenham, Londres",,,,
+Quart de finale,quartfinale2,demifinale1,Sam 17 oct ,21h,"Twickenham, Londres",,,,
+Quart de finale,quartfinale3,demifinale2,Dimanche 18 oct ,14h,"Twickenham, Londres",,,,
+Quart de finale,quartfinale4,demifinale2,Dimanche 18 oct ,17h,"Twickenham, Londres",,,,
+,poolA1,quartfinale1,Sam 10 oct ,21h,"City Stadium, Manchester",Angleterre,Uruguay,,A
 ,poolB1,quartfinale2,Dim 11 oct ,21h,"Kingsholm, Gloucester",USA,Japon,,B
 ,poolC1,quartfinale3,Dim 11 oct ,13h,"City Stadium, Leicester",Argentine,Namibie,,C
 ,poolD1,quartfinale4,Dim 11 oct ,17h45,"Millennium Stadium, Cardiff",France,Irlande,,D
-match2,poolA2,poolA1,Sam 10 oct ,17h45,"Twickenham, Londres",Australie,Pays de Galles,,A
+,poolA2,poolA1,Sam 10 oct ,17h45,"Twickenham, Londres",Australie,Pays de Galles,,A
 ,poolB2,poolB1,Sam 10 oct ,15h30,"St James Park, Newcastle upon Tyne",Samoa,Écosse,,B
 ,poolC2,poolC1,Ven 9 oct ,21h,"St James Park, Newcastle upon Tyne",Nouvelle-Zélande,Tonga,,C
 ,poolD2,poolD1,Dim 11 oct ,15h30,"Sandy Park, Exeter",Italie,Roumanie,,D
-match3,poolA3,poolA2,Mar 6 oct ,21h,"Stadiummk, Milton Keynes",Fiji,Uruguay,,A
+,poolA3,poolA2,Mar 6 oct ,21h,"Stadiummk, Milton Keynes",Fiji,Uruguay,,A
 ,poolB3,poolB2,Mer 7 oct ,17h45,"The Stadium, Londres",Afrique du Sud,USA,,B
 ,poolC3,poolC2,Mer 7 oct ,21h,"Sandy Park, Exeter",Namibie,Géorgie,,C
 ,poolD3,poolD2,Mar 6 oct ,17h45,"City Stadium, Leicester",Canada,Roumanie,,D
