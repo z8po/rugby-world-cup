@@ -341,32 +341,32 @@ window.onload = function() {
 
 
 
-        node.append("text")
-          .attr("dx", function(d) {
-            return 5;
-          })
-          .attr("dy", 60)
-          .text(function(d) {
-            if (d.countryFirst && d.countrySecond) {
-              return d.countryFirst + " - " + d.countrySecond;
-            }
-          });
 
         node.append("text")
           .attr("dx", function(d) {
             return 5;
           })
-          .attr("dy", 75)
+          .attr("dy", 45)
           .text(function(d) {
             return d.name;
           });
+          node.append("text")
+            .attr("dx", function(d) {
+              return 5;
+            })
+            .attr("dy", 60)
+            .text(function(d) {
+              if (d.countryFirst && d.countrySecond) {
+                return d.countryFirst + " - " + d.countrySecond;
+              }
+            });
 
         node.append("text")
           .attr("dx", function(d) {
             return 5;
           })
           .attr('class', 'stadium')
-          .attr("dy", 90)
+          .attr("dy", 75)
           .text(function(d) {
             if (d.date && d.hour) {
               return d.date + ' ' + d.hour;
@@ -378,7 +378,7 @@ window.onload = function() {
             return 5;
           })
           .attr('class', 'stadium')
-          .attr("dy", 105)
+          .attr("dy", 90)
           .text(function(d) {
             return d.stadium.split(',').join(',');
           });
