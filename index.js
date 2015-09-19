@@ -390,7 +390,6 @@ window.onload = function() {
         fallBackPrintArray(cup, memoTitle);
       } else {
         init(memoCup);
-        fallBackPrintArray(cup, memoTitle);
       }
 
       window.onresize = function() {
